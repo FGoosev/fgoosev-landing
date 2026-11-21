@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Print styles */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .hero,
+  .section,
+  .container {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  /* Remove dark backgrounds for print */
+  [class*="bg-"] {
+    background: transparent !important;
+  }
+}
