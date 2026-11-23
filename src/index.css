@@ -1,9 +1,24 @@
 @import "tailwindcss";
 
+:root {
+  /* Brown color palette */
+  --color-bg-start: #3e2723;   /* Dark brown */
+  --color-bg-mid: #5d4037;     /* Medium brown */
+  --color-bg-end: #8d6e63;     /* Light brown */
+
+  /* Accent colors */
+  --color-accent: #d7ccc8;     /* Soft beige for accents */
+
+  /* Glass effect overlay */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+}
+
+/* Global smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
+/* Reset */
 html,
 body,
 #root {
@@ -12,6 +27,7 @@ body,
   box-sizing: border-box;
 }
 
+/* Print styles */
 @media print {
   body {
     background: #fff !important;
@@ -22,5 +38,73 @@ body,
   }
   [class*="bg-"] {
     background: transparent !important;
+  }
+}
+
+/* ---------- 3D torn‑paper background for Hero ---------- */
+@layer utilities {
+  /* Liquid glass background for the whole app */
+  .bg-liquid-glass {
+    @apply bg-gradient-to-br;
+    background: linear-gradient(
+      to bottom right,
+      var(--color-bg-start),
+      var(--color-bg-mid),
+      var(--color-bg-end)
+    );
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    background-color: var(--glass-bg);
+  }
+
+  /* Hero background layer with brown palette and glass effect */
+  .hero-bg-layer {
+    @apply absolute inset-0;
+    background: linear-gradient(
+      to bottom right,
+      var(--color-bg-start),
+      var(--color-bg-mid),
+      var(--color-bg-end)
+    );
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 70% 100%, 30% 100%, 0 85%);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+    animation: float 12s ease-in-out infinite;
+    backdrop-filter: blur(8px) saturate(150%);
+    -webkit-backdrop-filter: blur(8px) saturate(150%);
+  }
+
+  /* Content wrapper to keep it above the background */
+  .hero-content {
+    @apply relative z-10;
+  }
+}
+
+/* Watermark overlay for the torn‑paper effect */
+.hero-bg-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 10px,
+    rgba(255, 255, 255, 0.04) 10px,
+    rgba(255, 255, 255, 0.04) 20px
+  );
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Floating animation for the torn‑paper effect */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

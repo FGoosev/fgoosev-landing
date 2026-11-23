@@ -20,7 +20,7 @@ export default function Education({ education }: EducationProps) {
             </h3>
 
             {item.direction && (
-              <p className="mt-1 text-base font-medium text-indigo-300">
+              <p className="mt-1 text-base font-medium text-yellow-400">
                 {item.degree}
               </p>
             )}

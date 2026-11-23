@@ -18,12 +18,12 @@ export default function Header({ resume }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-indigo-950/80 backdrop-blur-lg border-b border-white/10">
+    <header className="sticky top-0 z-50 bg-stone-900/80 backdrop-blur-lg border-b border-white/10">
       <nav className="container mx-auto flex items-center justify-between py-4 px-4">
         <a
           href="#hero"
           onClick={() => setIsOpen(false)}
-          className="text-xl md:text-2xl font-bold text-white hover:text-indigo-300 transition-colors"
+          className="text-xl md:text-2xl font-bold text-white hover:text-amber-300 transition-colors"
         >
           {resume.name}
         </a>
@@ -34,7 +34,7 @@ export default function Header({ resume }: HeaderProps) {
             <li key={item.href}>
               <a
                 href={item.href}
-                className="text-white hover:text-indigo-300 transition-colors"
+                className="text-white hover:text-amber-300 transition-colors"
               >
                 {item.name}
               </a>
@@ -77,13 +77,13 @@ export default function Header({ resume }: HeaderProps) {
 
       {/* Выпадающее мобильное меню */}
       {isOpen && (
-        <ul className="md:hidden border-t border-white/10 bg-indigo-950/95 px-4 py-2 space-y-1">
+        <ul className="md:hidden border-t border-white/10 bg-stone-900/95 px-4 py-2 space-y-1">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block py-2 text-white hover:text-indigo-300 transition-colors"
+                className="block py-2 text-white hover:text-amber-300 transition-colors"
               >
                 {item.name}
               </a>

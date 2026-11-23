@@ -10,7 +10,7 @@ import { resume } from "./data/resume";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white font-sans antialiased">
+    <div className="min-h-screen bg-liquid-glass text-white font-sans antialiased">
       <Header resume={resume} />
       <main className="container mx-auto px-4 py-8 space-y-16">
         <Hero resume={resume} />

@@ -34,13 +34,13 @@ export default function Footer({ copyright, socials, aiNote }: FooterProps) {
         )}
 
         {aiNote && (
-          <div className="max-w-2xl rounded-xl bg-indigo-500/10 border border-indigo-400/25 px-4 py-2.5 text-xs sm:text-sm text-indigo-200/90 leading-relaxed">
+          <div className="max-w-2xl rounded-xl bg-amber-700/10 border border-indigo-400/25 px-4 py-2.5 text-xs sm:text-sm text-indigo-200/90 leading-relaxed">
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 mr-2 align-middle" />
             {aiNote}
           </div>
         )}
 
-        <p className="text-xs text-gray-400">{copyright}</p>
+        <p className="text-xs text-yellow-400">{copyright}</p>
       </div>
     </footer>
   );
